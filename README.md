@@ -6,4 +6,3 @@ It takes [the Westminster version](https://parli-n-grams.puntofisso.net/) built 
 
 Looking up a word will show how frequently it was used in the parliament as a proportion of all the words uttered that year. So looking up 'Brexit' shows it was used much more often in 2019, as a proportion of everything said that year.
 
-![picture](brexit_search.png)
