@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 import requests
 
-st.title('Geiriau: words')
+st.title('Geiriau | Words')
 st.subheader("What they talk about in the Welsh parliament")
 
 @st.cache_data
