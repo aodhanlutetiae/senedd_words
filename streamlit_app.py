@@ -17,10 +17,6 @@ with st.spinner(text="Hang on, we're loading up nine years of politicians talkin
 
 user_input = st.text_input("Look up a word", 'donation').lower()
 
-# f = open("log_terms.txt", "a")
-# f.write(f"{user_input} \n")
-# f.close()
-
 search_dict = {}
 for y in d:
     total_words = len(d[y])
