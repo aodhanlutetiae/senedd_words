@@ -6,5 +6,25 @@ It was made by [@aodhanlutetiae](https://x.com/aodhanlutetiae) and takes the [th
 
 Looking up a word will show how frequently it was used in the parliament as a proportion of all the words uttered that year. So looking up 'Brexit' shows it was used much more often in 2019, as a proportion of everything said that year.
 
+![picture](brexit_search.png)
+
+The is because the word Brexit was used 1,145 times in the Senedd in 2019, and represents just under 1% of all the 1,378,551 words in 2019. This percentage figure is what's used to compare a word between one year and the next.
+
 ## The data
 
+The words considered are those uttered in *plenary* sessions, i.e. when all Senedd members meet in the main chamber (usually twice a week). It does not include committee meetings. When all the proceedings are collected for a full year there are over a million words. These are then cleaned to remove punctuation, capital letters and metadata.
+
+This is updated weekly and can be downloaded as a json file [here](https://seneddbucket.s3.amazonaws.com/year_WL.json).
+
+## Ideas
+
+- Are particular people mentioned more in a particular year: Boris, Gething, Bates?
+- What about paticular companies: Amazon, Airbnb, Tata?
+- What about groups: teachers, nurses, farmers, nhs?
+- What about technology: Tiktok, Snapchat, Instagram? Or concepts: trolling, distancing?
+- What about political topics: speed, donation, lockdown?
+- What doesn't get mentioned?
+
+## The Welsh element
+
+This parliament is different to Westminster because two languages are used. This means that some of the words are spoken in Welsh and appear in the transcript with an English translation. The question of differing trends in English-language discussions versus Welsh disucssions is ignored: here we want to know what is being talked *about*.
