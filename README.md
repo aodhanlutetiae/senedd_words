@@ -8,7 +8,7 @@ It shows how frequently a word was used in the parliament as a proportion of all
 
 ![picture](brexit_search.png)
 
-The is because the word Brexit was used 1,145 times in the Senedd in 2019, and represents just under 1% of all the 1,378,551 words heard there in 2019. This percentage figure is what's used to compare a word between one year and the next.
+The word Brexit was used 1,145 times in the Senedd in 2019, and represents just under 1% of all the 1,378,551 words heard there in 2019. This percentage figure is what's used to compare a word between one year and the next.
 
 ## The data
 
@@ -21,7 +21,8 @@ This is updated weekly and can be downloaded as a json file [here](https://sened
 - When do we talk about people: Boris, Gething, Bates?
 - What about particular companies: Amazon, Airbnb, Tata?
 - What about groups: teachers, nurses, farmers, nhs?
-- What about technology: Tiktok, Snapchat, Instagram? Or concepts: trolling, distancing?
+- What about technology: Tiktok, Snapchat, Instagram? 
+- Or concepts: trolling, distancing?
 - What about political topics: speed, donation, lockdown?
 - What doesn't get mentioned?
 
