@@ -8,7 +8,7 @@ st.title('Geiriau | Words')
 st.subheader("What they talk about in the Welsh parliament")
 
 # define function that loads the data
-@st.cache_data
+@st.cache_data(max_entries = 1)
 def load_data(url):
     req = requests.get(url)
     return req.json()
@@ -21,6 +21,8 @@ with st.spinner(text="Hang on, we're loading up nine years of politicians talkin
 # collect user input and cast to lowercase
 user_input = st.text_input("Look up a word", 'donation').lower()
 
+# work through each year(key) in the dictionary to get len of wordlist(value) 
+# and to count occurences of word queried by user. Then add results to new dict
 search_dict = {}
 for y in d:
     total_words = len(d[y])
@@ -28,15 +30,13 @@ for y in d:
     perc = (term_count / total_words) * 100
     search_dict[y] = perc
 
-# make a df from the dictionary just assembled. Make 2nd df with year col as index
-df = pd.Series(search_dict).to_frame().reset_index()
-df.columns = ['year', 'value']
-df2 = df.reset_index().set_index('year')['value']
+# make a df from the dictionary just assembled
+df = pd.DataFrame.from_dict(search_dict, orient='index', columns=['value'])
 
 # make line chart
-st.line_chart(df2)
+st.line_chart(df)
 
-# extract the most recent update from the log file and print
+# extract the most recent update from the log file and print for the 'Last updated' line
 with open('repo_log.txt') as f:
     for line in f:
         pass
@@ -45,5 +45,5 @@ with open('repo_log.txt') as f:
     update = 'Last update: ' + ll
 st.markdown(update)
 
-# link to the README on the github repo
+# print link to the README on the github repo
 st.markdown('[About](https://github.com/aodhanlutetiae/senedd_words/blob/main/README.md)')
