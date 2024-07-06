@@ -13,10 +13,12 @@ def load_data(url):
     req = requests.get(url)
     return req.json()
 
-# use the function with AWS as address. Run waiting message
+# use the function with AWS as address: 214 MB. Run waiting message
 aws_l = 'https://seneddbucket.s3.amazonaws.com/year_WL.json'
+aws_l_test = 'https://seneddbuckettest.s3.amazonaws.com/test_data_100k_10MB.json'
+
 with st.spinner(text="Hang on, we're loading up nine years of politicians talking..."):
-    d = load_data(aws_l)
+    d = load_data(aws_l_test)
 
 # collect user input and cast to lowercase
 user_input = st.text_input("Look up a word", 'donation').lower()
