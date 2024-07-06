@@ -43,7 +43,7 @@ with open('repo_log.txt') as f:
     for line in f:
         pass
     last_line = line
-    ll = re.split('at |, ', last_line)[1]
+    ll = re.split(' at |, ', last_line)[1]
     update = 'Last update: ' + ll
 st.markdown(update)
 
