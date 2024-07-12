@@ -10,7 +10,7 @@ The word Brexit was used 2,995 times in the Senedd in 2019, which was just under
 
 If you want to find the particular Senedd discussions where a word appears, you can search [here](https://www.theyworkforyou.com/senedd/).
 
-The app uses the [files](https://www.theyworkforyou.com/pwdata/scrapedxml/senedd/en/) assembled by [They Work For You](https://www.theyworkforyou.com/) from the Senedd's [open data](https://senedd.wales/help/open-data/). It was made by [@aodhanlutetiae](https://x.com/aodhanlutetiae) and takes the [Westminster version](https://parli-n-grams.puntofisso.net/) built by [@puntofisso](https://puntofisso.net/) as inspiration.
+The app runs on Streamlit. It uses the [files](https://www.theyworkforyou.com/pwdata/scrapedxml/senedd/en/) assembled by [They Work For You](https://www.theyworkforyou.com/) from the Senedd's [open data](https://senedd.wales/help/open-data/). It was made by [@aodhanlutetiae](https://x.com/aodhanlutetiae) and takes the [Westminster version](https://parli-n-grams.puntofisso.net/) built by [@puntofisso](https://puntofisso.net/) as inspiration.
 
 ## The data
 
@@ -25,7 +25,7 @@ This is updated weekly and can be downloaded as [a JSON file](https://seneddbuck
 - What about groups: teachers, nurses, farmers, carers?
 - What about technology: Tiktok, Snapchat, Instagram? 
 - Or concepts: trolling, distancing?
-- What about topics: speed, donation, lockdown, adhd, foodbanks?
+- What about topics: speed, donation, lockdown, adhd, foodbanks, european?
 - What never gets mentioned?
 
 ## Welsh
