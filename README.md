@@ -10,11 +10,13 @@ The word Brexit was used 2,995 times in the Senedd in 2019, which was just under
 
 If you want to find the particular Senedd discussions where a word appears, you can search [here](https://www.theyworkforyou.com/senedd/).
 
-The app uses the [files](https://www.theyworkforyou.com/pwdata/scrapedxml/senedd/en/) assembled by [They Work For You](https://www.theyworkforyou.com/) from the Senedd's [open data](https://senedd.wales/help/open-data/). It was made by [@aodhanlutetiae](https://x.com/aodhanlutetiae), runs on Streamlit and takes the [Westminster version](https://parli-n-grams.puntofisso.net/) built by [@puntofisso](https://puntofisso.net/) as inspiration.
+The app uses the [files](https://www.theyworkforyou.com/pwdata/scrapedxml/senedd/en/) assembled by [They Work For You](https://www.theyworkforyou.com/) from the Senedd's [open data](https://senedd.wales/help/open-data/). It was made by [@aodhanlutetiae](https://x.com/aodhanlutetiae) and takes the [Westminster version](https://parli-n-grams.puntofisso.net/) built by [@puntofisso](https://puntofisso.net/) as inspiration.
 
 ## The data
 
 The words considered are those uttered in *plenary* sessions, i.e. when all Senedd members meet in the main chamber (usually twice a week). It does not include committee meetings. When all the proceedings are collected for a full year there are over a million words. These are then cleaned to remove punctuation, capital letters etc. and metadata.
+
+This is updated weekly and can be downloaded as [a JSON file](https://seneddbucket.s3.amazonaws.com/year_WL.json) (200MB+).
 
 ## Ideas
 
