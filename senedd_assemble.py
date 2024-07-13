@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup as bs
 import time
 import pandas as pd
 import json
-from lxml import etree 
 import warnings
 warnings.simplefilter(action = 'ignore', category = Warning)
 from collections import Counter
@@ -17,7 +16,7 @@ import sys
 
 def collect_list(lang = 'en'):
 
-    """makes a list of available proceedings files online and will allow us to print nb of new xml files.
+    """makes a list of available proceedings files online and will allow us to print the number of new xml files.
     Can take string argument for 'en' or 'cy' depending on which directory you want to check but sets 'en' as default """
 
     # print statement
@@ -52,7 +51,7 @@ if len(xml_list_en) == len(current_dir_files_list):
     print('No new files to collect. Stopping program.')
     sys.exit(0)
     
-# otherwise make a list of what needs to be collected: build a list of the décalage and report
+# otherwise make a list of what needs to be collected and report
 else:
     diff_list = list(set(xml_list_en) - set(current_dir_files_list))
     diff_len = len(diff_list)
@@ -77,7 +76,7 @@ def collect_xmls(url_list):
         this_url = base_url + file
         req = requests.get(this_url)
 
-        # write (save) the file, which has a different name to the other files
+        # write (save) the file, which always has a different name to the other files
         with open(f'senedd_data/{file}', 'wb') as file:
             file.write(req.content)
         
@@ -87,15 +86,14 @@ def collect_xmls(url_list):
     response = "Finished collecting new XML files"
     return response
 
-# collect the new XMLs
+# use the function to collect the new XMLs
 collect_xmls(diff_list)
     
-# create a list from all the XML file names now held locally
+# create a final list of all the XML file names now held locally
 current_dir_files_list = list(os.listdir("senedd_data"))
 
 # remove any empty files from list: check for size in bytes. Drop anything < 100 bytes
-# note: this is what generates the 'nb files held' statement at end, so count and log will 
-# be correct but the drive will still hold the tiny file
+# note: this is what generates the 'nb files held' statement at end, so count and log will be correct but the drive will still hold the tiny file
 for x in current_dir_files_list:
     size = os.path.getsize((f'senedd_data/{x}'))
     if size < 100:
@@ -108,7 +106,7 @@ print(f'{len(current_dir_files_list)} XML files now held locally')
 
 # 3. ASSEMBLE ALL XML FILES INTO A SINGLE DF
 
-# Create dfs for all the local XML files and assemble into a single dictionary
+# Create dfs for all the local XML files and assemble these dfs into a single dictionary
 print('Assembling mega_df')
 df_dict = {}
 soucis = []
@@ -124,16 +122,15 @@ for x in current_dir_files_list:
         
     except:
         soucis.append(x)
-        # continue
 
 # flag up any problems in extracting from XML files
 pb_len = len(soucis)
-print (f"{pb_len} discarded problem file(s):", soucis)
+print (f"{pb_len} ignored problem file(s):", soucis)
 
 # build a single df from the dictionaries just assembled
 mega_df = pd.concat(df_dict, ignore_index = True)
 
-# ****** OPTIONAL ******** un-comment this if you want to save the csv locally for analysis of the df
+# ****** OPTIONAL ******** un-comment this if you want to save the csv locally at this point for analysis of the mega_df
 # mega_df.to_csv('mega.csv', index = False)
 
 # clean the mega df
@@ -163,7 +160,7 @@ def year_to_list(yr, df):
     df_series = fil.p
     df_list = list(df_series)
 
-    # cast list elements to string and lowercase
+    # limit list elements to strings and lowercase them
     df_string_only_list = [x for x in df_list if type(x) == str]
     string_of_words = ' '.join(df_string_only_list)
     word_list = string_of_words.split()
@@ -174,7 +171,7 @@ def year_to_list(yr, df):
     c = [x for x in b if x.startswith("oaq") == False]
     d = [x for x in c if x.startswith("ndm") == False]
 
-    # # remove things standing alone that are not words
+    # # remove things standing alone that are not words (long dash, short dash etc.)
     things = ['—', '-', '&', '£', '/', '+']
     done2 = [x for x in d if x not in things]
 
@@ -226,11 +223,11 @@ def year_to_list(yr, df):
     
     return year_freq
     
-# make a year list from the df, & order it so we have keys for each year
+# make a year list from the df, in order
 years_int = list(mega_df.year.unique())
 years_int.sort()
 
-# use the function to create a freq list as value for each year, as key, then append to years_fl_dict
+# use the function to create a freq list (VALUE) for each year (KEY), then append to years_fl_dict
 print('Assembling dictionary of frequencies')
 years_fl_dict = {}
 for x in years_int:

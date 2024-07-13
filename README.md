@@ -14,16 +14,16 @@ The app runs on Streamlit. It uses the [files](https://www.theyworkforyou.com/pw
 
 ## The data
 
-The words considered are those uttered in *plenary* sessions, i.e. when all Senedd members meet in the main chamber (usually twice a week). It does not include committee meetings. When all the proceedings are collected for a full year there are over a million words. These are then cleaned to remove punctuation, capital letters etc. and metadata.
+The words considered are those uttered in *plenary* sessions, i.e. when all Senedd members meet in the main chamber (usually twice a week: Tuesday and Wednesday). It does not include committee meetings. Once all the proceedings have been collected, the words are cleaned to remove punctuation, capital letters etc. and metadata.
 
 ## Ideas
 
-- When do we talk about people: Boris, Gething, Bates?
+- When do we talk about people: Boris, Sunak, Gething?
 - What about particular companies: Amazon, Airbnb, Tata?
 - What about groups: teachers, nurses, farmers, carers?
 - What about technology: Tiktok, Snapchat, Instagram, Whatsapp? 
-- Or concepts: trolling, distancing?
-- What about topics: speed, donation, lockdown, adhd, foodbanks, european?
+- Or concepts: trolls, distancing?
+- What about topics: speed, donation, lockdown, adhd, foodbanks, European?
 - What never gets mentioned?
 
 ## Welsh

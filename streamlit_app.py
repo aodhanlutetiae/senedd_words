@@ -1,6 +1,10 @@
 import json
 import streamlit as st
 import re
+import streamlit_analytics2 as streamlit_analytics
+
+# open analytics
+streamlit_analytics.start_tracking()
 
 # text
 st.title('Geiriau | Words')
@@ -11,7 +15,7 @@ with open('year_FL.json') as json_data:
     d = json.load(json_data)
 
 # collect user input and cast to lowercase
-user_input = st.text_input("Look up a word", 'donation').lower()
+user_input = st.text_input("Look up a word and see how frequently it was used each year", 'donation').lower()
  
 # make a dictionary of the results for the word looked up each year
 search_dict = {}
@@ -32,3 +36,6 @@ st.markdown(update)
 
 # print link to the README on the github repo
 st.markdown('[About](https://github.com/aodhanlutetiae/senedd_words/blob/main/README.md)')
+
+# close analytics
+streamlit_analytics.stop_tracking()
