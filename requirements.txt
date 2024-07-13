@@ -1,3 +1,4 @@
 streamlit==1.30.0
 pandas==2.1.4
+streamlit-analytics==0.4.1
 streamlit_analytics2==0.8.0
