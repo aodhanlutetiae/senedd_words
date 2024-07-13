@@ -1,10 +1,6 @@
 import json
 import streamlit as st
 import re
-import streamlit_analytics2 as streamlit_analytics
-
-# open analytics
-streamlit_analytics.start_tracking()
 
 # text
 st.title('Geiriau | Words')
@@ -36,6 +32,3 @@ st.markdown(update)
 
 # print link to the README on the github repo
 st.markdown('[About](https://github.com/aodhanlutetiae/senedd_words/blob/main/README.md)')
-
-# close analytics
-streamlit_analytics.stop_tracking()
