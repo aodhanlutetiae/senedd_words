@@ -15,7 +15,7 @@ user_input = st.text_input("Look up a word", 'donation').lower()
  
 search_dict = {}
 for y in d:
-    result = next((v[1] for i, v in enumerate(d[y]) if v[0] == user_input), None)
+    result = next((v[1] for v in d[y] if v[0] == user_input), None)
     search_dict[y] = result
 
 # make line chart

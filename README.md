@@ -6,7 +6,7 @@ It shows how often a word was used in the parliament as a proportion of all the 
 
 <img src="brexit_search.png" width="600">
 
-The word Brexit was used 2,995 times in the Senedd in 2019, which was just under 0.1% of the roughly three million words heard there in 2019. This percentage figure is what's used to compare a word between one year and the next.
+The word Brexit was used 2,990 times in the Senedd in 2019, which was just under 0.1% of the roughly three million words heard there in 2019. This percentage figure is what's used to compare a word between one year and the next.
 
 If you want to find the particular Senedd discussions where a word appears, you can search [here](https://www.theyworkforyou.com/senedd/).
 
