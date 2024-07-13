@@ -10,11 +10,14 @@ warnings.simplefilter(action = 'ignore', category = Warning)
 from collections import Counter
 import sys
 
+
+
+
 # 1. CHECK IF THERE ARE NEW XML FILES AVAILABLE ONLINE
 
 def collect_list(lang = 'en'):
 
-    """makes list of available proceedings files online and will allow us to print nb of new xml files.
+    """makes a list of available proceedings files online and will allow us to print nb of new xml files.
     Can take string argument for 'en' or 'cy' depending on which directory you want to check but sets 'en' as default """
 
     # print statement
@@ -41,21 +44,19 @@ def collect_list(lang = 'en'):
 # run function to get current online XML file urls as a list; assign results to variable
 xml_list_en = collect_list()
 
-# make a list of the XML files ALREADY held locally
+# make a list of the XML files already held locally
 current_dir_files_list = list(os.listdir("senedd_data"))
 
-# if there's no difference in length, just print a message that there are no new files, and exit
+# if there's no difference in length, just print a message that there are no new files, and exit here
 if len(xml_list_en) == len(current_dir_files_list):
     print('No new files to collect. Stopping program.')
     sys.exit(0)
     
-# otherwise make a list of what needs to be collected
+# otherwise make a list of what needs to be collected: build a list of the décalage and report
 else:
-    #  ...build a list of the décalage
     diff_list = list(set(xml_list_en) - set(current_dir_files_list))
     diff_len = len(diff_list)
-    
-    # PRINT
+
     print(f"New files! {diff_len} new xml file(s) of proceedings")
     
     
@@ -76,11 +77,11 @@ def collect_xmls(url_list):
         this_url = base_url + file
         req = requests.get(this_url)
 
-        # write (save) the file - this gets overwritten on each loop
+        # write (save) the file, which has a different name to the other files
         with open(f'senedd_data/{file}', 'wb') as file:
             file.write(req.content)
         
-        # prep end of loop
+        # pause
         time.sleep(1)
         
     response = "Finished collecting new XML files"
@@ -89,11 +90,11 @@ def collect_xmls(url_list):
 # collect the new XMLs
 collect_xmls(diff_list)
     
-# create a list from ALL the XML file names NOW held locally
+# create a list from all the XML file names now held locally
 current_dir_files_list = list(os.listdir("senedd_data"))
 
 # remove any empty files from list: check for size in bytes. Drop anything < 100 bytes
-# note: this is what generates the 'nb files held' statement at end so count and log will 
+# note: this is what generates the 'nb files held' statement at end, so count and log will 
 # be correct but the drive will still hold the tiny file
 for x in current_dir_files_list:
     size = os.path.getsize((f'senedd_data/{x}'))
@@ -127,13 +128,13 @@ for x in current_dir_files_list:
 
 # flag up any problems in extracting from XML files
 pb_len = len(soucis)
-print (f"{pb_len} problem file(s):", soucis)
+print (f"{pb_len} discarded problem file(s):", soucis)
 
 # build a single df from the dictionaries just assembled
 mega_df = pd.concat(df_dict, ignore_index = True)
 
-# OPTIONAL: un-comment this if you want to save the csv locally for analysis of the df
-mega_df.to_csv('mega.csv', index = False)
+# ****** OPTIONAL ******** un-comment this if you want to save the csv locally for analysis of the df
+# mega_df.to_csv('mega.csv', index = False)
 
 # clean the mega df
 # remove NAN from the p (paragraph) col
@@ -143,12 +144,13 @@ mega_df = mega_df[mega_df.p.str.startswith("The Assembly met at") == False]
 # remove all dodgy apostrophes
 mega_df = mega_df.replace("`|’|‘", "'", regex=True)
 
-# conclude with mega df dimensions
+# conclude with mega_df dimensions
 print(f'mega_df now assembled: {mega_df.shape}')
 
 
 
-# 4. ASSEMBLE A DICTIONARY OF {YEAR:[{'word': 0.02, 'word': 0.003}}]}
+
+# 4. ASSEMBLE A DICTIONARY OF {YEAR:[{'word': 0.02, 'word': 0.003, etc. }}, YEAR: ...]}
 
 def year_to_list(yr, df):
     
@@ -210,12 +212,12 @@ def year_to_list(yr, df):
     remaining_s = [x for x in done2 if x[-2:] != "'s"]
     done_s = cleaned_s + remaining_s
 
-    # remove numbering numbers
+    # remove numbers 
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] 
     non = [x for x in done_s if x not in numbers]
     
-    # remove standalone letters (except A, I)
-    letters = ['b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    # remove standalone letters (except A, I) and empty words of len(0)
+    letters = ['', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     non_nl = [x for x in non if x not in letters]
     
     # get a freq list for all the terms in this year-dict
@@ -224,25 +226,23 @@ def year_to_list(yr, df):
     
     return year_freq
     
-# make a YEAR LIST from the df, & order it so we have keys for each year
+# make a year list from the df, & order it so we have keys for each year
 years_int = list(mega_df.year.unique())
 years_int.sort()
 
-# make an empty dictionary
-years_fl_dict = {}
-
-# use the function to create a freq list as value for each year, as key, then append to years_wl_dict
+# use the function to create a freq list as value for each year, as key, then append to years_fl_dict
 print('Assembling dictionary of frequencies')
+years_fl_dict = {}
 for x in years_int:
     freq_list = year_to_list(x, mega_df)
     years_fl_dict[x] = freq_list
     
-# export dictionary as a json file into the folder for the github repo
-with open('senedd_words/year_FL.json', 'w') as f:
+# export dictionary as a json file
+with open('year_FL.json', 'w') as f:
     json.dump(years_fl_dict, f)
     
-# updated log (writing to repo folder)
-f = open("senedd_words/repo_log.txt", "a")
+# update log
+f = open("repo_log.txt", "a")
 time_now = time.ctime(int(time.time()))
 nb = len(current_dir_files_list)
 f.write(f"file run at {time_now}, {nb} (real) xml files held \n")

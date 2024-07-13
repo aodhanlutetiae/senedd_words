@@ -16,14 +16,12 @@ The app runs on Streamlit. It uses the [files](https://www.theyworkforyou.com/pw
 
 The words considered are those uttered in *plenary* sessions, i.e. when all Senedd members meet in the main chamber (usually twice a week). It does not include committee meetings. When all the proceedings are collected for a full year there are over a million words. These are then cleaned to remove punctuation, capital letters etc. and metadata.
 
-This is updated weekly and can be downloaded as [a JSON file](https://seneddbucket.s3.amazonaws.com/year_WL.json) (200MB+).
-
 ## Ideas
 
 - When do we talk about people: Boris, Gething, Bates?
 - What about particular companies: Amazon, Airbnb, Tata?
 - What about groups: teachers, nurses, farmers, carers?
-- What about technology: Tiktok, Snapchat, Instagram? 
+- What about technology: Tiktok, Snapchat, Instagram, Whatsapp? 
 - Or concepts: trolling, distancing?
 - What about topics: speed, donation, lockdown, adhd, foodbanks, european?
 - What never gets mentioned?
