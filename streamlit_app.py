@@ -32,7 +32,7 @@ st.line_chart(search_dict)
 q.close()
 
 # extract the most recent update from the log file and print for the 'Last updated' line
-with open('repo_log.txt') as f:
+with open('harvesting_log.txt') as f:
     update_list = list(f.readlines())
     last_line = update_list[-1:][0]
     ll = re.split(' at |, ', last_line)[1]
