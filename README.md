@@ -18,8 +18,8 @@ The words considered are those uttered in *plenary* sessions, i.e. when all Sene
 
 ## Ideas
 
-- When do we talk about people: Boris, Sunak, Gething?
-- What about particular companies: Amazon, Airbnb, Tata?
+- When do we talk about people: Sunak, Gething, Putin?
+- What about companies: Amazon, Airbnb, Tata?
 - What about groups: teachers, nurses, farmers, carers?
 - What about technology: Tiktok, Snapchat, Instagram, Whatsapp? 
 - Or concepts: trolls, distancing?
