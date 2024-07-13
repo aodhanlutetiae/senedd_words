@@ -239,7 +239,7 @@ with open('year_FL.json', 'w') as f:
     json.dump(years_fl_dict, f)
     
 # update log
-f = open("repo_log.txt", "a")
+f = open("harvesting_log.txt", "a")
 time_now = time.ctime(int(time.time()))
 nb = len(current_dir_files_list)
 f.write(f"file run at {time_now}, {nb} (real) xml files held \n")
