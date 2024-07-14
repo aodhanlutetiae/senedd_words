@@ -193,8 +193,8 @@ def year_to_list(yr, df):
         else:
             d4.append(x)
             
-    # remove trailing punctuation (second dash removes long dash)
-    problems = ['.', ':', ';', '!', '?', ',', '-', '—']     
+    # remove trailing punctuation (second dash removes long dash) and trailing quote marks (again)
+    problems = ['.', ':', ';', '!', '?', ',', '-', '—', '"', "'"]     
     clean = [x[:-1] for x in d4 if x[-1:] in problems]              
     remaining = [x for x in d4 if x[-1:] not in problems]
     done = clean + remaining
@@ -213,13 +213,23 @@ def year_to_list(yr, df):
     numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'] 
     non = [x for x in done_s if x not in numbers]
     
-    # remove standalone letters (except A, I) and empty words of len(0)
-    letters = ['', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    # remove standalone letters (except A, I and X (= twitter)) and empty words of len(0)
+    letters = ['', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'y', 'z']
     non_nl = [x for x in non if x not in letters]
+
+    # remove opening single and double quote marks
+    guai = ["'", '"']
+    ng = [x[1:] for x in non_nl if x[:1] in guai]              
+    nong = [x for x in non_nl if x[:1] not in guai]
+    fatto = ng + nong
+    # remove closing single and double quote marks
+    ng2 = [x[:-1] for x in fatto if x[-1:] in guai]              
+    nong2 = [x for x in fatto if x[-1:] not in guai]
+    fatto2 = ng2 + nong2
     
     # get a freq list for all the terms in this year-dict
-    c = Counter(non_nl)
-    year_freq = [(i, c[i] / len(non_nl) * 100.0) for i in c] 
+    c = Counter(fatto2)
+    year_freq = [(i, c[i] / len(fatto2) * 100.0) for i in c] 
     
     return year_freq
     

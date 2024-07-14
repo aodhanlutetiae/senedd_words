@@ -11,7 +11,7 @@ with open('year_FL.json') as json_data:
     d = json.load(json_data)
 
 # collect user input and cast to lowercase. And log
-user_input = st.text_input("Look up a word and see how frequently it was used each year", 'donation').lower()
+user_input = st.text_input("Look up a word and see how frequently it's been used in the Senedd over time", 'donation').lower()
  
 # make a dictionary of the results for the word looked up each year
 search_dict = {}
@@ -20,7 +20,7 @@ for y in d:
     search_dict[y] = result
 
 # make line chart
-st.line_chart(search_dict)
+st.line_chart(search_dict, y_label='As a percentage of all words')
 
 # extract the most recent update from the log file and print for the 'Last updated' line
 with open('harvesting_log.txt') as f:

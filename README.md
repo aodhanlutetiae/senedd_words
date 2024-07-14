@@ -6,9 +6,9 @@ It shows how often a word was used in the parliament as a proportion of all the 
 
 <img src="brexit_search.png" width="600">
 
-The word Brexit was used 2,990 times in the Senedd in 2019, which was just under 0.1% of the roughly three million words heard there in 2019. This percentage figure is what's used to compare a word between one year and the next.
+The word Brexit was used 2,990 times in the Senedd in 2019, which was just under 0.1% of the roughly three million words heard there in 2019. This percentage figure is what's used to compare a word's frequency one year to its frequency in another year. 
 
-If you want to find the particular Senedd discussions where a word appears, you can search [here](https://www.theyworkforyou.com/senedd/).
+If you want to find particular Senedd discussions where a word appears, you can search this site under [Search Debates](https://www.theyworkforyou.com/senedd/).
 
 The app runs on Streamlit. It uses the [files](https://www.theyworkforyou.com/pwdata/scrapedxml/senedd/en/) assembled by [They Work For You](https://www.theyworkforyou.com/) from the Senedd's [open data](https://senedd.wales/help/open-data/). It was made by [@aodhanlutetiae](https://x.com/aodhanlutetiae) and takes the [Westminster version](https://parli-n-grams.puntofisso.net/) built by [@puntofisso](https://puntofisso.net/) as inspiration.
 
@@ -21,9 +21,9 @@ The words considered are those uttered in *plenary* sessions, i.e. when all Sene
 - When do we talk about people: Sunak, Gething, Putin?
 - What about companies: Amazon, Airbnb, Tata?
 - What about groups: teachers, nurses, farmers, carers?
-- What about technology: Tiktok, Snapchat, Instagram, Whatsapp? 
+- What about technology: Tiktok, Twitter (X?), Instagram, Whatsapp? 
 - Or concepts: trolls, distancing?
-- What about topics: speed, donation, lockdown, adhd, foodbanks, European?
+- What about topics: speed, donations, lockdown, adhd, foodbanks, European?
 - What never gets mentioned?
 
 ## Welsh
