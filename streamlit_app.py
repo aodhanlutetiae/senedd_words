@@ -20,7 +20,7 @@ for y in d:
     search_dict[y] = result
 
 # make line chart
-st.line_chart(search_dict, y_label='As a percentage of all words')
+st.line_chart(search_dict)
 
 # extract the most recent update from the log file and print for the 'Last updated' line
 with open('harvesting_log.txt') as f:
