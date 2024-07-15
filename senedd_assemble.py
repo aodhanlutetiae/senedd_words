@@ -130,7 +130,7 @@ print (f"{pb_len} ignored problem file(s):", soucis)
 # build a single df from the dictionaries just assembled
 mega_df = pd.concat(df_dict, ignore_index = True)
 
-# ****** OPTIONAL ******** un-comment this if you want to save the csv locally at this point for analysis of the mega_df
+# ---------------- OPTIONAL ------------ un-comment this to save the csv locally 
 # mega_df.to_csv('mega.csv', index = False)
 
 # clean the mega df
@@ -175,7 +175,7 @@ def year_to_list(yr, df):
     things = ['—', '-', '&', '£', '/', '+']
     done2 = [x for x in d if x not in things]
 
-    # trim words with quote marks at tail        
+    # trim words with single quote marks at tail        
     d3 = []
     for x in done2:
         if x[-1:] == "'":
@@ -184,7 +184,7 @@ def year_to_list(yr, df):
         else:
             d3.append(x)
             
-    # trim words with quote marks at top        
+    # trim words with single quote marks at top        
     d4 = []
     for x in d3:
         if x[:1] == "'":
