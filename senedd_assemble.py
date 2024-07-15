@@ -250,7 +250,7 @@ with open('year_FL.json', 'w') as f:
     
 # update log
 f = open("harvesting_log.txt", "a")
-time_now = time.ctime(int(time.time()))
+time_now = time.strftime("%a %b %d %Y %H:%M", time.localtime(time.time()))
 nb = len(current_dir_files_list)
 f.write(f"file run at {time_now}, {nb} (real) xml files held \n")
 f.close()
