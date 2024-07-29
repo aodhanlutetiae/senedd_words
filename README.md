@@ -21,11 +21,10 @@ The words considered are those uttered in *plenary* sessions, i.e. when all Sene
 - When do we talk about people: Sunak, Gething, Putin?
 - What about companies: Amazon, Airbnb, Tata?
 - What about groups: teachers, nurses, farmers, carers?
-- What about technology: Tiktok, Twitter (X?), Instagram, Whatsapp? 
-- Or concepts: trolls, distancing?
+- What about technology: Tiktok, Instagram, Whatsapp, ChatGPT? 
 - What about topics: speed, donations, lockdown, adhd, foodbanks, European?
 - What never gets mentioned?
 
 ## Welsh
 
-This parliament is different to Westminster because two languages are used. This means that some of the words are spoken in Welsh and appear in the transcript with an English translation. The question of potentially differing trends in English-language versus Welsh discussions is ignored.
+This parliament is different to Westminster because two languages are used. This means that some of the words are spoken in Welsh and appear in the transcript in an English translation. The question of potentially differing trends in English-language versus Welsh discussions is ignored.
