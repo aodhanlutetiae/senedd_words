@@ -49,6 +49,12 @@ current_dir_files_list = list(os.listdir("senedd_data"))
 # if there's no difference in length, just print a message that there are no new files, and exit here
 if len(xml_list_en) == len(current_dir_files_list):
     print('No new files to collect. Stopping program.')
+    # update log before exiting
+    f = open("harvesting_log.txt", "a")
+    time_now = time.strftime("%a %b %d %Y %H:%M", time.localtime(time.time()))
+    nb = len(current_dir_files_list)
+    f.write(f"file run at {time_now}, {nb} (real) xml files held \n")
+    f.close()
     sys.exit(0)
     
 # otherwise make a list of what needs to be collected and report
