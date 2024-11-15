@@ -31,4 +31,5 @@ with open('harvesting_log.txt') as f:
 st.markdown(update)
 
 # print link to the README on the github repo
-st.markdown('[About](https://github.com/aodhanlutetiae/senedd_words/blob/main/README.md)')
+st.link_button('About', 'https://github.com/aodhanlutetiae/senedd_words/blob/main/README.md',  use_container_width=False)
+
