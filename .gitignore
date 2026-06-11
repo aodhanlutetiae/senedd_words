@@ -1,4 +1,5 @@
 .DS_Store
+notes.txt
 
 # ignore the data folder and the 'retired' folder where I keep old .py versions
 senedd_data/

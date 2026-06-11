@@ -8,6 +8,10 @@ It shows how often a word was used in the parliament as a proportion of all the 
 
 The word Brexit was used 2,990 times in the Senedd in 2019, which was just under 0.1% of the roughly three million words heard there in 2019. This percentage figure is what's used to compare a word's frequency one year to its frequency in another year. 
 
+While the word 'Brexit' falls away, others become more popular — such as the name of the prime minister.
+
+<img src="keir_search.png" width="600">
+
 If you want to find particular Senedd discussions where a word appears, you can search a different site under [Search Debates](https://www.theyworkforyou.com/senedd/).
 
 This app runs on Streamlit. It uses the [files](https://www.theyworkforyou.com/pwdata/scrapedxml/senedd/en/) assembled by [They Work For You](https://www.theyworkforyou.com/) from the Senedd's [open data](https://senedd.wales/help/open-data/). It was made by [@aodhanlutetiae](https://x.com/aodhanlutetiae) and takes the [Westminster version](https://parli-n-grams.puntofisso.net/) built by [@puntofisso](https://puntofisso.net/) as inspiration. 
