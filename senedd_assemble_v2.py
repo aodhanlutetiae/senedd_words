@@ -50,7 +50,13 @@ while current_date <= end_date:
 print("Done.")
 
 # create a final list of all the XML file names now held locally
-current_dir_files_list = list(os.listdir("senedd_data"))
+# current_dir_files_list = list(os.listdir("senedd_data"))
+
+# debug suggestion
+current_dir_files_list = [
+    f for f in os.listdir("senedd_data")
+    if f.endswith(".xml")
+]
 
 print(f'{len(current_dir_files_list)} XML files now held locally')
 
@@ -72,15 +78,26 @@ for x in current_dir_files_list:
         # add df to dictionary
         df_dict[x] = df
         
-    except:
+    # debug suggestion
+    # except:
+    #     soucis.append(x)
+    except Exception as e:
+        print(f"Failed on {x}: {e}")
         soucis.append(x)
 
 # flag up any problems in extracting from XML files
 pb_len = len(soucis)
 print (f"{pb_len} ignored problem file(s):", soucis)
 
+if not df_dict:
+    raise RuntimeError(
+        f"No DataFrames were created. Problem files: {soucis}"
+    )
+
 # build a single df from the dictionaries just assembled
-mega_df = pd.concat(df_dict, ignore_index = True)
+# mega_df = pd.concat(df_dict, ignore_index = True)
+# debug fix
+mega_df = pd.concat(df_dict.values(), ignore_index=True)
 
 # ---------------- OPTIONAL ------------ un-comment this to save the csv locally 
 # mega_df.to_csv('mega.csv', index = False)
